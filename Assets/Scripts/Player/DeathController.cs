@@ -11,6 +11,12 @@ public class DeathController : MonoBehaviour
 
   public void OnDeath()
   {
+    Debug.Log("Dead");
+    // TODO: Disable Inputs
 
+    // Disable EatingController
+    eatingController.enabled = false;
+
+    // TODO: Show DeathScene
   }
 }

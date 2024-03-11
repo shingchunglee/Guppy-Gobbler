@@ -7,24 +7,29 @@ public class EatingController : MonoBehaviour
 {
     [SerializeField]
     private SizeController selfSize;
+    [SerializeField]
+    private DeathController deathController;
 
     void Start()
     {
         selfSize = GetComponent<SizeController>();
+        deathController = GetComponent<DeathController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other);
+        if (!enabled) return;
+
         if (other.gameObject.TryGetComponent<Food>(out Food food))
         {
-            if (food != null)
+            if (food.TryEaten(selfSize.size))
             {
-                if (food.TryEaten(selfSize.size))
-                {
-                    selfSize.IncrementSize();
-                    UpdateScore(other.gameObject);
-                }
+                selfSize.IncrementSize();
+                UpdateScore(other.gameObject);
+            }
+            else
+            {
+                deathController.OnDeath();
             }
         }
     }
