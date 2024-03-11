@@ -23,8 +23,18 @@ public class EatingController : MonoBehaviour
                 if (food.TryEaten(selfSize.size))
                 {
                     selfSize.IncrementSize();
+                    UpdateScore(other.gameObject);
                 }
             }
+        }
+    }
+
+    private void UpdateScore(GameObject food)
+    {
+        if (food.TryGetComponent<ScoreController>(out ScoreController scoreController))
+        {
+            Debug.Log(scoreController.score);
+            // TODO: Add score to GameManager
         }
     }
 }
