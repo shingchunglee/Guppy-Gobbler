@@ -6,15 +6,14 @@ public class FoodManager : MonoBehaviour
   private SizeController sizeController;
   private ScoreController scoreController;
   private Food food;
-  void Start()
+  void Awake()
   {
     sizeController = GetComponent<SizeController>();
     scoreController = GetComponent<ScoreController>();
     food = GetComponent<Food>();
-    Init();
   }
 
-  void Init(int size = 1, int score = 100)
+  public void Init(int size = 1, int score = 100)
   {
     sizeController.SetSize(size);
     scoreController.SetScore(score);
