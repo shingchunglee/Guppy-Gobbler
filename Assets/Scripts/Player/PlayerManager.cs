@@ -4,7 +4,7 @@ public class PlayerManager : MonoBehaviour
 {
   private SizeController sizeController;
   private EatingController eatingController;
-  void Start()
+  void Awake()
   {
     sizeController = GetComponent<SizeController>();
     eatingController = GetComponent<EatingController>();

@@ -10,7 +10,7 @@ public class EatingController : MonoBehaviour
     [SerializeField]
     private DeathController deathController;
 
-    void Start()
+    void Awake()
     {
         selfSize = GetComponent<SizeController>();
         deathController = GetComponent<DeathController>();
@@ -40,6 +40,8 @@ public class EatingController : MonoBehaviour
         {
             Debug.Log(scoreController.score);
             // TODO: Add score to GameManager
+
+            GameManager.Instance.AddScore(scoreController.score);
         }
     }
 }
