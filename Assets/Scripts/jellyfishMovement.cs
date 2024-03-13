@@ -9,7 +9,7 @@ public class jellyfishMovement : MonoBehaviour
 
     void Start()
     {
-        jleftOrRight();
+        //jleftOrRight();
         FlipJelly();
     }
 
@@ -23,21 +23,21 @@ public class jellyfishMovement : MonoBehaviour
         transform.Translate(jmoveDirection * jmoveSpeed * Time.deltaTime);
     }
 
-    void jleftOrRight()
-    {
-        int direction = Random.Range(0, 2); 
-    if (direction == 0)
-    {
-        jmoveDirection = Vector2.left;
-    }
-    else
-    {
-        jmoveDirection = Vector2.right;
-    }
+    //void jleftOrRight()
+    //{
+//        int direction = Random.Range(0, 2); 
+    //if (direction == 0)
+    //{
+    //    jmoveDirection = Vector2.left;
+    //}
+    //else
+    //{
+    //    jmoveDirection = Vector2.right;
+    //}
 
         
-        FlipJelly();
-    }
+    //    FlipJelly();
+    //}
 
     void FlipJelly()
 {
