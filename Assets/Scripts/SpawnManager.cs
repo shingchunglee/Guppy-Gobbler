@@ -38,6 +38,9 @@ public class SpawnManager : MonoBehaviour
 
   public void SpawnFood()
   {
+    // Random.Range(1,2)
+    // if random > 0.8 && playerSize.size > 5
+    // spawn a non food instead
     GameObject newFood = Instantiate(foodPrefab);
 
     if (newFood.TryGetComponent<FoodManager>(out FoodManager foodManager))
@@ -45,7 +48,7 @@ public class SpawnManager : MonoBehaviour
       int size = GetRandomSize(playerSize.size);
       foodManager.Init(size, size * 100);
 
-      UpdatePosition(newFood.GetComponent<Transform>(), size);
+      UpdatePosition(newFood.GetComponent<Transform>(), newFood.GetComponent<jellyfishMovement>(), size);
     }
   }
 
@@ -54,7 +57,7 @@ public class SpawnManager : MonoBehaviour
     return Random.Range(size - 2, size + 3);
   }
 
-  private void UpdatePosition(Transform transform, int size)
+  private void UpdatePosition(Transform transform, jellyfishMovement jellyfishMovement, int size)
   {
     float horizontalBorder = mainCamera.orthographicSize * Screen.width / Screen.height;
     float horizontalPos = horizontalBorder + size;
@@ -62,6 +65,11 @@ public class SpawnManager : MonoBehaviour
     if (side != 1)
     {
       horizontalPos *= -1;
+      jellyfishMovement.SetDirection(Vector2.right);
+    }
+    else
+    {
+      jellyfishMovement.SetDirection(Vector2.left);
     }
 
     transform.position = new Vector2(horizontalPos, getRandomHeight(size));

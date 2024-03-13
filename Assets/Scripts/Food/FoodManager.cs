@@ -11,7 +11,7 @@ public class FoodManager : MonoBehaviour
     sizeController = GetComponent<SizeController>();
     scoreController = GetComponent<ScoreController>();
     food = GetComponent<Food>();
-    Init();
+    // Init();
   }
 
   public void Init(int size = 1, int score = 100)

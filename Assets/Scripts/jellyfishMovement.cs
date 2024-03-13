@@ -23,9 +23,19 @@ public class jellyfishMovement : MonoBehaviour
         transform.Translate(jmoveDirection * jmoveSpeed * Time.deltaTime);
     }
 
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+    public void SetDirection(Vector2 direction)
+    {
+        jmoveDirection = direction;
+    }
+
     //void jleftOrRight()
     //{
-//        int direction = Random.Range(0, 2); 
+    //        int direction = Random.Range(0, 2); 
     //if (direction == 0)
     //{
     //    jmoveDirection = Vector2.left;
@@ -35,22 +45,22 @@ public class jellyfishMovement : MonoBehaviour
     //    jmoveDirection = Vector2.right;
     //}
 
-        
+
     //    FlipJelly();
     //}
 
     void FlipJelly()
-{
-    if (jmoveDirection == Vector2.right)
     {
-       
-        transform.localScale = new Vector3(-1, 1, 1);
+        if (jmoveDirection == Vector2.right)
+        {
+
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
-    else
-    {
-       
-        transform.localScale = new Vector3(1, 1, 1);
-    }
-}
 
 }

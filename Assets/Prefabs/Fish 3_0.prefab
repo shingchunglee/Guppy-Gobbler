@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 1971666839110712652}
   - component: {fileID: 6842451282680082699}
   - component: {fileID: 3209412033307435517}
+  - component: {fileID: 7057002520294032379}
+  - component: {fileID: 8136058149651105129}
+  - component: {fileID: 9119649079722290906}
+  - component: {fileID: 2687845181837859969}
   m_Layer: 0
   m_Name: Fish 3_0
   m_TagString: Untagged
@@ -106,3 +110,53 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7057002520294032379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598354636098777775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7085de25fad2c417ea5ef4543bb4afc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformComponent: {fileID: 0}
+--- !u!114 &8136058149651105129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598354636098777775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b82769238b134545ae13431e7a810c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9119649079722290906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598354636098777775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d20675bcf7e1143d0b6644228afcba20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2687845181837859969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598354636098777775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 777e84c0f77d282428acc4068654c0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jmoveSpeed: 5

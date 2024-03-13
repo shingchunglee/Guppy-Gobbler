@@ -8,7 +8,7 @@ public class SizeController : MonoBehaviour
 
     public Transform transformComponent;
 
-    private void Start()
+    private void Awake()
     {
         transformComponent = GetComponent<Transform>();
     }
