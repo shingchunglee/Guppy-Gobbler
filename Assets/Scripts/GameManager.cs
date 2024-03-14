@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 
     public static GameManager Instance { get { return _instance; } }
+    public Text scoreText;
 
     private void Awake()
     {
@@ -19,7 +21,7 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
-        score = 0;
+        score = 2;
     }
 
     public int score { private set; get; }
@@ -27,5 +29,11 @@ public class GameManager : MonoBehaviour
     public void AddScore(int newScore)
     {
         score += newScore;
+        updateScore();
+    }
+
+    private void updateScore()
+    {
+        scoreText.text = "Score: " + score.ToString();
     }
 }
