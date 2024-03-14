@@ -35,13 +35,6 @@ public class PlayerControllerMitch : MonoBehaviour
 
         rb.AddForce(moveDir * moveSpeed);
 
-        //rb.AddForce(Vector3.right * moveSpeed * Input.GetAxis("Horizontal"),
-        //        ForceMode2D.Impulse);
-
-        //rb.AddForce(Vector3.up * moveSpeed * Input.GetAxis("Vertical"),
-        //        ForceMode2D.Impulse);
-
-
         ClampSpeed();
 
 
