@@ -49,7 +49,12 @@ public class jellyfishMovement : MonoBehaviour
     //    FlipJelly();
     //}
 
-    void FlipJelly()
+    public Vector2 GetDirection()
+    {
+        return jmoveDirection;
+    }
+
+    public void FlipJelly()
     {
         if (jmoveDirection == Vector2.right)
         {
