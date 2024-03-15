@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerFish
       objectReference: {fileID: 0}
+    - target: {fileID: 5320049440752991700, guid: a62023bb5f39b44fe91e9c107558e391, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -255,7 +259,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1986888709}
-  foodPrefab: {fileID: 598354636098777775, guid: 464c2a0cee05835498f4b76978af7e7f, type: 3}
+  foodPrefabs:
+  - {fileID: 598354636098777775, guid: 464c2a0cee05835498f4b76978af7e7f, type: 3}
+  - {fileID: 5848444533524492800, guid: 75cb6c21e7eb64949abf685ec70933cb, type: 3}
   playerSize: {fileID: 0}
   delay: 2
 --- !u!4 &314941025
