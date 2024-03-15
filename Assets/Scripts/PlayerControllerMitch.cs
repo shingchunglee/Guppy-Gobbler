@@ -28,12 +28,12 @@ public class PlayerControllerMitch : MonoBehaviour
 
         }
 
-        rb.AddForce(Vector3.right * moveSpeed * Input.GetAxis("Horizontal"),
-                ForceMode2D.Impulse);
+        float xVel = Input.GetAxisRaw("Horizontal");
+        float yVel = Input.GetAxisRaw("Vertical");
 
-        rb.AddForce(Vector3.up * moveSpeed * Input.GetAxis("Vertical"),
-                ForceMode2D.Impulse);
+        var moveDir = new Vector2(xVel, yVel).normalized;
 
+        rb.AddForce(moveDir * moveSpeed);
 
         ClampSpeed();
 
