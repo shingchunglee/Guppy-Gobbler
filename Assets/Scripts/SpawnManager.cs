@@ -13,6 +13,8 @@ public class SpawnManager : MonoBehaviour
   private GameObject foodPrefab;
   [SerializeField]
   private SizeController playerSize;
+  [SerializeField]
+  private float delay = 5f;
 
   void Awake()
   {
@@ -24,7 +26,7 @@ public class SpawnManager : MonoBehaviour
   void Start()
   {
     // TODO: Update Delay
-    StartCoroutine(SpawnFoodCoroutine(5f));
+    StartCoroutine(SpawnFoodCoroutine(delay));
   }
 
   IEnumerator SpawnFoodCoroutine(float delay)
