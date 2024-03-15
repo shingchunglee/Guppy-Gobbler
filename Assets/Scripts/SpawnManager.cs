@@ -27,6 +27,34 @@ public class SpawnManager : MonoBehaviour
   {
     // TODO: Update Delay
     StartCoroutine(SpawnFoodCoroutine(delay));
+    StartCoroutine(SpawnSmallFoodCoroutine(delay));
+  }
+
+  IEnumerator SpawnSmallFoodCoroutine(float delay)
+  {
+    while (enabled)
+    {
+      yield return new WaitForSeconds(delay);
+      SpawnSmallFood();
+    }
+  }
+
+  private void SpawnSmallFood()
+  {
+    GameObject newFood = Instantiate(foodPrefab);
+
+    if (newFood.TryGetComponent<FoodManager>(out FoodManager foodManager))
+    {
+      int size = GetRandomSmallSize(playerSize.size);
+      foodManager.Init(size, size * 100);
+
+      UpdatePosition(newFood.GetComponent<Transform>(), newFood.GetComponent<jellyfishMovement>(), size);
+    }
+  }
+
+  private int GetRandomSmallSize(int size)
+  {
+    return Random.Range(1, size - 1);
   }
 
   IEnumerator SpawnFoodCoroutine(float delay)
