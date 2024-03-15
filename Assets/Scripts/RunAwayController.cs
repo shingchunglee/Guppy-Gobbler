@@ -13,6 +13,7 @@ public class RunAwayController : MonoBehaviour
     private void Awake()
     {
         // Find the player GameObject by tag
+        jellyfishMovement = GetComponent<jellyfishMovement>();
 
         GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
         if (playerGameObject != null)
@@ -25,6 +26,7 @@ public class RunAwayController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Debug.Log("Size: " + $"{playerSize.size}" + " SizeController: " + $"{GetComponent<SizeController>().size + 2}");
         if (playerSize.size > GetComponent<SizeController>().size + 2)//@roy i tried to change the size on size controller but it doesnt reflect when played so i tested without this condition
         {
             checkRayCast();
@@ -47,14 +49,14 @@ public class RunAwayController : MonoBehaviour
 
             Debug.DrawRay(rayStartPos, currentDirection * 20, Color.red, 4f);
 
-            RaycastHit2D hit = Physics2D.Raycast(rayStartPos, currentDirection, 20);// i cant set a proper length cus of the fish size so it might not even appear on screen at 20 pls fix when sprite gets bigger, might need to increase raycast length
+            RaycastHit2D hit = Physics2D.Raycast(rayStartPos, currentDirection, 20, LayerMask.GetMask("Player"));// i cant set a proper length cus of the fish size so it might not even appear on screen at 20 pls fix when sprite gets bigger, might need to increase raycast length
             if (hit.collider != null)
             {
-                if (hit.collider.CompareTag("Player"))
-                {
-                    RunAway();
-                    break; // Optional: stop checking further rays if player is already detected
-                }
+                // if (hit.collider.CompareTag("Player"))
+                // {
+                RunAway();
+                break; // Optional: stop checking further rays if player is already detected
+                // }
             }
         }
     }
