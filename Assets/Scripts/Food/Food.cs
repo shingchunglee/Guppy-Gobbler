@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,15 @@ public class Food : MonoBehaviour
         if (selfSize.size + 2 <= otherSize)
         {
             Destroy(gameObject);
+            return true;
+        }
+        return false;
+    }
+
+    internal bool TryEatPlayer(int otherSize)
+    {
+        if (selfSize.size > otherSize)
+        {
             return true;
         }
         return false;

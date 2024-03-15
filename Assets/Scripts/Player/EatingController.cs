@@ -27,7 +27,7 @@ public class EatingController : MonoBehaviour
                 selfSize.IncrementSize();
                 UpdateScore(other.gameObject);
             }
-            else
+            else if (food.TryEatPlayer(selfSize.size))
             {
                 deathController.OnDeath();
             }
