@@ -13,6 +13,7 @@ public class DeathController : MonoBehaviour
   {
     Debug.Log("Dead");
     // TODO: Disable Inputs
+    GetComponent<PlayerControllerMitch>().enabled = false;
 
     // Disable EatingController
     eatingController.enabled = false;
