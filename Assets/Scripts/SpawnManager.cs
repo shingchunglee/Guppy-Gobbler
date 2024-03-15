@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
   [SerializeField]
   private Camera mainCamera;
   [SerializeField]
-  private GameObject foodPrefab;
+  private GameObject[] foodPrefabs;
   [SerializeField]
   private SizeController playerSize;
   [SerializeField]
@@ -27,7 +27,7 @@ public class SpawnManager : MonoBehaviour
   {
     // TODO: Update Delay
     StartCoroutine(SpawnFoodCoroutine(delay));
-    StartCoroutine(SpawnSmallFoodCoroutine(delay));
+    StartCoroutine(SpawnSmallFoodCoroutine(delay + 0.5f));
   }
 
   IEnumerator SpawnSmallFoodCoroutine(float delay)
@@ -41,6 +41,7 @@ public class SpawnManager : MonoBehaviour
 
   private void SpawnSmallFood()
   {
+    GameObject foodPrefab = foodPrefabs[Random.Range(0, foodPrefabs.Length)];
     GameObject newFood = Instantiate(foodPrefab);
 
     if (newFood.TryGetComponent<FoodManager>(out FoodManager foodManager))
@@ -71,6 +72,7 @@ public class SpawnManager : MonoBehaviour
     // Random.Range(1,2)
     // if random > 0.8 && playerSize.size > 5
     // spawn a non food instead
+    GameObject foodPrefab = foodPrefabs[Random.Range(0, foodPrefabs.Length)];
     GameObject newFood = Instantiate(foodPrefab);
 
     if (newFood.TryGetComponent<FoodManager>(out FoodManager foodManager))
