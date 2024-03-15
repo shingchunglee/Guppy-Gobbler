@@ -30,6 +30,12 @@ public class SizeController : MonoBehaviour
     public void SetSize(int newSize)
     {
         size = newSize;
-        transformComponent.localScale = new Vector3(size, size, size);
+        float normalizedSize = NormalizedSize(newSize);
+        transformComponent.localScale = new Vector3(normalizedSize, normalizedSize, normalizedSize);
+    }
+
+    public float NormalizedSize(int size)
+    {
+        return size / 10f;
     }
 }
