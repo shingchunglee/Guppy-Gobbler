@@ -38,6 +38,7 @@ public class RunAwayController : MonoBehaviour
         Vector2 currentDirection = jellyfishMovement.GetDirection().normalized;
         Collider2D collider = GetComponent<Collider2D>();
         float colliderHeight = collider.bounds.size.y;
+        float raycastLength = collider.bounds.size.x*2;
         int numberOfRays = 5; //because one line isnt enough to detect, wanted at full height of the collider >.< maybe we can reduce to 3 upto u
         float spacing = colliderHeight / (numberOfRays - 1);
 
@@ -47,9 +48,9 @@ public class RunAwayController : MonoBehaviour
             float verticalOffset = (i * spacing) - (colliderHeight / 2);
             Vector2 rayStartPos = new Vector2(transform.position.x, transform.position.y + verticalOffset);
 
-            Debug.DrawRay(rayStartPos, currentDirection * 20, Color.red, 4f);
+            Debug.DrawRay(rayStartPos, currentDirection * raycastLength, Color.red, 4f);
 
-            RaycastHit2D hit = Physics2D.Raycast(rayStartPos, currentDirection, 20, LayerMask.GetMask("Player"));// i cant set a proper length cus of the fish size so it might not even appear on screen at 20 pls fix when sprite gets bigger, might need to increase raycast length
+            RaycastHit2D hit = Physics2D.Raycast(rayStartPos, currentDirection, raycastLength, LayerMask.GetMask("Player"));// i cant set a proper length cus of the fish size so it might not even appear on screen at 20 pls fix when sprite gets bigger, might need to increase raycast length
             if (hit.collider != null)
             {
                 // if (hit.collider.CompareTag("Player"))

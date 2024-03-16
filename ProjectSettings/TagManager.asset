@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - RunawayCollider
   layers:
   - Default
   - TransparentFX
@@ -64,4 +65,7 @@ TagManager:
     locked: 0
   - name: coral
     uniqueID: 3125366165
+    locked: 0
+  - name: UI
+    uniqueID: 2585842391
     locked: 0
