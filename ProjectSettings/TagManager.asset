@@ -11,10 +11,10 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Bg
+  - Rocks
+  - Coral
+  - Plant
   - 
   - 
   - 
@@ -38,6 +38,30 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: coral 4
+    uniqueID: 1998888691
+    locked: 0
+  - name: Cave silhouette 3
+    uniqueID: 3726333457
+    locked: 0
+  - name: Cave silhouette
+    uniqueID: 2342826591
+    locked: 0
+  - name: Cave
+    uniqueID: 3538887943
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Rock
+    uniqueID: 569877325
+    locked: 0
+  - name: coral layer
+    uniqueID: 4116942673
+    locked: 0
+  - name: Plant
+    uniqueID: 2036768477
+    locked: 0
+  - name: coral
+    uniqueID: 3125366165
     locked: 0

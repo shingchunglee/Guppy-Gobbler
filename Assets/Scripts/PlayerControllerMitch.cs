@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 public class PlayerControllerMitch : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float moveSpeed;
     public float moveSpeedMax;
+
+
+    public event Action PlayerDied;
 
     private void Awake()
     {
@@ -61,5 +66,14 @@ public class PlayerControllerMitch : MonoBehaviour
         }
 
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       if (collision.gameObject.CompareTag("Shark"))
+        {
+            PlayerDied.Invoke();
+            Destroy(this.gameObject);
+        }
     }
 }
