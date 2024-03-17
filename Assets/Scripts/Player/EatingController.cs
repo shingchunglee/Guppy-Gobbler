@@ -26,6 +26,7 @@ public class EatingController : MonoBehaviour
             {
                 selfSize.IncrementSize();
                 UpdateScore(other.gameObject);
+                GameManager.Instance.soundManager.Sound_EatFish();
             }
             else if (food.TryEatPlayer(selfSize.size))
             {
