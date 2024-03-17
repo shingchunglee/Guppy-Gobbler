@@ -1,4 +1,7 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathController : MonoBehaviour
 {
@@ -29,5 +32,12 @@ public class DeathController : MonoBehaviour
     spriteRenderer.sprite = deadSprite;
 
     // TODO: Show DeathScene
+    StartCoroutine(ShowMainMenuScene(3f));
+  }
+
+  IEnumerator ShowMainMenuScene(float delay)
+  {
+    yield return new WaitForSeconds(delay);
+    SceneManager.LoadSceneAsync(0);
   }
 }
