@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
@@ -12,7 +13,9 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
 
     public SoundManager soundManager;
-    public HighScoreController highScoreController = new HighScoreController();
+    public HighScoreController highScoreController;
+
+    public GameObject gameOverScreen;
 
     private void Awake()
     {
@@ -24,7 +27,6 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
-        score = 2;
     }
 
     public int score { private set; get; }
@@ -44,4 +46,23 @@ public class GameManager : MonoBehaviour
     {
         highScoreController.SubmitScore(score);
     }
+
+    public void GameOver()
+    {
+        gameOverScreen.SetActive(true);
+    }
+
+    public void GameOverPanelOff()
+    {
+        gameOverScreen.SetActive(false);
+    }
+
+    public void DoneButton()
+    {
+        Debug.Log("Done!");
+        SceneManager.LoadSceneAsync(0);
+    }
+
+
+
 }

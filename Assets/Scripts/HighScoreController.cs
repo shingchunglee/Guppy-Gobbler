@@ -25,8 +25,6 @@ public class HighScoreController : MonoBehaviour
     public TMP_InputField inputField;
     public TextMeshProUGUI highScoreText;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +33,12 @@ public class HighScoreController : MonoBehaviour
 
     private void ScoreWithInputField()
     {
+        if (inputField == null)
+        {
+            Debug.Log("No input field configured.");
+            return;
+        }
+
         int score = int.Parse(inputField.text);
         SubmitScore(score);
 
@@ -42,6 +46,8 @@ public class HighScoreController : MonoBehaviour
 
     public void SubmitScore(int score)
     {
+        LoadScoresIfExist();
+
         //If the new high score is greater than the lowest highscore it is saved.
         if (score > highScores[9])
         {

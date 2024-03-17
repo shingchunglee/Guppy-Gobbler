@@ -31,10 +31,12 @@ public class DeathController : MonoBehaviour
     // use dead sprite
     spriteRenderer.sprite = deadSprite;
 
-    GameManager.Instance.SaveScore();
+    GameManager.Instance.highScoreController.SubmitScore(GameManager.Instance.score);
 
     // TODO: Show DeathScene
-    StartCoroutine(ShowMainMenuScene(3f));
+    //StartCoroutine(ShowMainMenuScene(3f));
+
+    GameManager.Instance.GameOver();
   }
 
   IEnumerator ShowMainMenuScene(float delay)
