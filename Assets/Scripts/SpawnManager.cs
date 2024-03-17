@@ -35,10 +35,13 @@ public class SpawnManager : MonoBehaviour
 
   IEnumerator SpawnNonFoodCoroutine(float delay)
   {
-    while (playerSize.size > 8)
+    while (enabled)
     {
       yield return new WaitForSeconds(delay);
-      SpawnNonFood();
+      if (playerSize.size >= 7)
+      {
+        SpawnNonFood();
+      }
     }
   }
 
@@ -56,7 +59,7 @@ public class SpawnManager : MonoBehaviour
     GameObject nonFoodPrefab = nonFoodPrefabs[Random.Range(0, nonFoodPrefabs.Length)];
     GameObject newNonFood = Instantiate(nonFoodPrefab);
 
-    int size = playerSize.size;
+    int size = 3;
     newNonFood.GetComponent<SizeController>().SetSize(size);
 
     UpdatePosition(newNonFood.GetComponent<Transform>(), newNonFood.GetComponent<jellyfishMovement>(), size);
