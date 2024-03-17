@@ -37,7 +37,7 @@ public class HighScoreController : MonoBehaviour
     {
         int score = int.Parse(inputField.text);
         SubmitScore(score);
-        
+
     }
 
     public void SubmitScore(int score)
@@ -50,7 +50,7 @@ public class HighScoreController : MonoBehaviour
 
         highScores = highScores.OrderByDescending(x => x).ToArray();
 
-        DisplayHighScores();
+        // DisplayHighScores();
 
         SaveHighScores();
     }
