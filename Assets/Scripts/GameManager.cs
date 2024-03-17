@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
     public Text scoreText;
 
+    public SoundManager soundManager;
+    public HighScoreController highScoreController = new HighScoreController();
+
     private void Awake()
     {
         if (_instance != null && _instance != this)

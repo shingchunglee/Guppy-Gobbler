@@ -73,6 +73,14 @@ public class PlayerControllerMitch : MonoBehaviour
        if (collision.gameObject.CompareTag("Shark"))
         {
             PlayerDied.Invoke();
+            GameManager.Instance.soundManager.Sound_HitShark();
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Jellyfish"))
+        {
+            PlayerDied.Invoke();
+            GameManager.Instance.soundManager.Sound_HitJelly();
             Destroy(this.gameObject);
         }
     }
