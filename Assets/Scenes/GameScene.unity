@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 227806555}
   soundManager: {fileID: 781346853}
-  highScoreController: {fileID: 0}
+  highScoreController: {fileID: 1986888712}
 --- !u!4 &16033193
 Transform:
   m_ObjectHideFlags: 0
@@ -544,6 +544,9 @@ MonoBehaviour:
   foodPrefabs:
   - {fileID: 598354636098777775, guid: 464c2a0cee05835498f4b76978af7e7f, type: 3}
   - {fileID: 5848444533524492800, guid: 75cb6c21e7eb64949abf685ec70933cb, type: 3}
+  nonFoodPrefabs:
+  - {fileID: 4410006263443713544, guid: 553277f175702421c859f3ec6e10c97f, type: 3}
+  - {fileID: 287282405769831320, guid: 132f465d4bb19402aa613509316c100a, type: 3}
   playerSize: {fileID: 0}
   delay: 2
 --- !u!4 &314941025
@@ -1076,6 +1079,7 @@ GameObject:
   - component: {fileID: 1986888710}
   - component: {fileID: 1986888709}
   - component: {fileID: 1986888711}
+  - component: {fileID: 1986888712}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1157,6 +1161,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986888707}
   m_Enabled: 1
+--- !u!114 &1986888712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986888707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5680025b0db164411990c30f866d29cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 0}
+  highScoreText: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
