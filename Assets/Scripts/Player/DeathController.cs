@@ -4,9 +4,16 @@ public class DeathController : MonoBehaviour
 {
   [SerializeField]
   private EatingController eatingController;
-  void Start()
+
+  [SerializeField]
+  private Sprite deadSprite;
+  private SpriteRenderer spriteRenderer;
+
+
+  void Awake()
   {
     eatingController = GetComponent<EatingController>();
+    spriteRenderer = GetComponent<SpriteRenderer>();
   }
 
   public void OnDeath()
@@ -17,6 +24,9 @@ public class DeathController : MonoBehaviour
 
     // Disable EatingController
     eatingController.enabled = false;
+
+    // use dead sprite
+    spriteRenderer.sprite = deadSprite;
 
     // TODO: Show DeathScene
   }
