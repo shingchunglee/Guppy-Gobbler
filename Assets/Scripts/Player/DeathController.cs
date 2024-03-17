@@ -31,6 +31,8 @@ public class DeathController : MonoBehaviour
     // use dead sprite
     spriteRenderer.sprite = deadSprite;
 
+    GameManager.Instance.SaveScore();
+
     // TODO: Show DeathScene
     StartCoroutine(ShowMainMenuScene(3f));
   }

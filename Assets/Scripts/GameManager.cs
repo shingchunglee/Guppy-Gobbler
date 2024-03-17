@@ -39,4 +39,9 @@ public class GameManager : MonoBehaviour
     {
         scoreText.text = "Score: " + score.ToString();
     }
+
+    public void SaveScore()
+    {
+        highScoreController.SubmitScore(score);
+    }
 }
