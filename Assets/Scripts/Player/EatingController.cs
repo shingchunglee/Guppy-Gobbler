@@ -33,6 +33,18 @@ public class EatingController : MonoBehaviour
                 deathController.OnDeath();
             }
         }
+
+        if (other.gameObject.CompareTag("Shark"))
+        {
+            GameManager.Instance.soundManager.Sound_HitShark();
+            deathController.OnDeath();
+        }
+
+        if (other.gameObject.CompareTag("Jellyfish"))
+        {
+            GameManager.Instance.soundManager.Sound_HitJelly();
+            deathController.OnDeath();
+        }
     }
 
     private void UpdateScore(GameObject food)
