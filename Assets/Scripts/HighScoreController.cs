@@ -63,6 +63,7 @@ public class HighScoreController : MonoBehaviour
 
     private void DisplayHighScores()
     {
+        if (highScoreText == null) return;
         highScoreText.text =
             $"1. {highScores[0]} \n" +
             $"2. {highScores[1]} \n" +
