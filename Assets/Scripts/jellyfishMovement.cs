@@ -60,11 +60,13 @@ public class jellyfishMovement : MonoBehaviour
         {
 
             GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<OutlineController>().FlipX();
         }
         else
         {
 
             GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<OutlineController>().DontFlipX();
         }
     }
 

@@ -50,6 +50,15 @@ public class SpawnManager : MonoBehaviour
       foodManager.Init(size, size * 100);
 
       UpdatePosition(newFood.GetComponent<Transform>(), newFood.GetComponent<jellyfishMovement>(), size);
+
+      if (size > playerSize.size)
+      {
+        newFood.GetComponent<OutlineController>().OutlineOn();
+      }
+      else
+      {
+        newFood.GetComponent<OutlineController>().OutlineOff();
+      }
     }
   }
 
@@ -81,6 +90,15 @@ public class SpawnManager : MonoBehaviour
       foodManager.Init(size, size * 100);
 
       UpdatePosition(newFood.GetComponent<Transform>(), newFood.GetComponent<jellyfishMovement>(), size);
+
+      if (size > playerSize.size)
+      {
+        newFood.GetComponent<OutlineController>().OutlineOn();
+      }
+      else
+      {
+        newFood.GetComponent<OutlineController>().OutlineOff();
+      }
     }
   }
 
