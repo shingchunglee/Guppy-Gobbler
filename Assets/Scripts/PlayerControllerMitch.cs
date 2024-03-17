@@ -9,6 +9,7 @@ public class PlayerControllerMitch : MonoBehaviour
     public Rigidbody2D rb;
     public float moveSpeed;
     public float moveSpeedMax;
+    private SpriteRenderer spriteRenderer;
 
 
     public event Action PlayerDied;
@@ -16,6 +17,7 @@ public class PlayerControllerMitch : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -27,10 +29,13 @@ public class PlayerControllerMitch : MonoBehaviour
     //This has been changed from 0.02 to 0.01, which should result in smoother physics.
     private void FixedUpdate()
     {
-        if (Input.GetAxisRaw("Horizontal") == 0 &&
-            Input.GetAxisRaw("Vertical") == 0)
+        if (Input.GetAxisRaw("Horizontal") > 0)
         {
-
+            spriteRenderer.flipX = true;
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            spriteRenderer.flipX = false;
         }
 
         float xVel = Input.GetAxisRaw("Horizontal");
