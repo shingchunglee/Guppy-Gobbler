@@ -86,7 +86,7 @@ public class SpawnManager : MonoBehaviour
 
   private int GetRandomSize(int size)
   {
-    return Random.Range(size - 2, size + 3);
+    return Random.Range(size - 2, size + 5);
   }
 
   private void UpdatePosition(Transform transform, jellyfishMovement jellyfishMovement, int size)
