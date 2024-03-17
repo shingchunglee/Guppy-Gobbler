@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
   [SerializeField]
   private GameObject[] foodPrefabs;
   [SerializeField]
+  private GameObject[] nonFoodPrefabs;
+  [SerializeField]
   private SizeController playerSize;
   [SerializeField]
   private float delay = 5f;
@@ -28,6 +30,16 @@ public class SpawnManager : MonoBehaviour
     // TODO: Update Delay
     StartCoroutine(SpawnFoodCoroutine(delay));
     StartCoroutine(SpawnSmallFoodCoroutine(delay + 0.5f));
+    StartCoroutine(SpawnNonFoodCoroutine(delay + 1.5f));
+  }
+
+  IEnumerator SpawnNonFoodCoroutine(float delay)
+  {
+    while (playerSize.size > 8)
+    {
+      yield return new WaitForSeconds(delay);
+      SpawnNonFood();
+    }
   }
 
   IEnumerator SpawnSmallFoodCoroutine(float delay)
@@ -37,6 +49,17 @@ public class SpawnManager : MonoBehaviour
       yield return new WaitForSeconds(delay);
       SpawnSmallFood();
     }
+  }
+
+  private void SpawnNonFood()
+  {
+    GameObject nonFoodPrefab = nonFoodPrefabs[Random.Range(0, nonFoodPrefabs.Length)];
+    GameObject newNonFood = Instantiate(nonFoodPrefab);
+
+    int size = playerSize.size;
+    newNonFood.GetComponent<SizeController>().SetSize(size);
+
+    UpdatePosition(newNonFood.GetComponent<Transform>(), newNonFood.GetComponent<jellyfishMovement>(), size);
   }
 
   private void SpawnSmallFood()
