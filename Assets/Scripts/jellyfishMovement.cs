@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class jellyfishMovement : MonoBehaviour
 {
@@ -56,17 +57,45 @@ public class jellyfishMovement : MonoBehaviour
 
     public void FlipJelly()
     {
-        if (jmoveDirection == Vector2.right)
+        if (!gameObject.CompareTag("Shark"))
         {
+            if (jmoveDirection == Vector2.right)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+                if (TryGetComponent<OutlineController>(out OutlineController outlineController))
+                {
+                    outlineController.FlipX();
+                };
+            }
+            else
+            {
 
-            GetComponent<SpriteRenderer>().flipX = true;
-            GetComponent<OutlineController>().FlipX();
+                GetComponent<SpriteRenderer>().flipX = false;
+                if (TryGetComponent<OutlineController>(out OutlineController outlineController))
+                {
+                    outlineController.DontFlipX();
+                };
+            }
         }
         else
         {
+            if (jmoveDirection == Vector2.left)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+                if (TryGetComponent<OutlineController>(out OutlineController outlineController))
+                {
+                    outlineController.FlipX();
+                };
+            }
+            else
+            {
 
-            GetComponent<SpriteRenderer>().flipX = false;
-            GetComponent<OutlineController>().DontFlipX();
+                GetComponent<SpriteRenderer>().flipX = false;
+                if (TryGetComponent<OutlineController>(out OutlineController outlineController))
+                {
+                    outlineController.DontFlipX();
+                };
+            }
         }
     }
 
