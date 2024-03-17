@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
 
     public SoundManager soundManager;
+    public HighScoreController highScoreController = new HighScoreController();
 
     private void Awake()
     {
